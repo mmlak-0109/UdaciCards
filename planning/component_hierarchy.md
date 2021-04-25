@@ -1,4 +1,5 @@
 App.js (Root Component)
+  - StatusBar
   - All main components held in routes
     - Decks
     - Add Deck
@@ -9,8 +10,14 @@ App.js (Root Component)
 
 Decks.js (Home Component)
 ![Decks](/planning/photos/my_mockup/Decks_components.png)
-- DeckList
-  - StatusBar
-  - HeaderBar
-  - DeckCard
-  - DeckNav
+- StatusBar
+- HeaderBar
+- DeckCard (multiples rendered in list)
+- DeckNav
+
+AddDeck.js
+![AddDeck](/planning/photos/my_mockup/AddDeck_components.png)
+- HeaderBar
+- InputBox
+- MainBtn
+- DeckNav
