@@ -21,3 +21,9 @@ AddDeck.js
 - InputBox
 - MainBtn
 - DeckNav
+
+Stats.js
+![Stats](/planning/photos/my_mockup/Stats_components.png)
+- HeaderBar
+- DeckStats
+- DeckNav
