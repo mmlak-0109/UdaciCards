@@ -13,17 +13,25 @@ Decks.js (Home Component)
 - StatusBar
 - HeaderBar
 - DeckCard (multiples rendered in list)
-- DeckNav
+- HomeNav
 
 AddDeck.js
 ![AddDeck](/planning/photos/my_mockup/AddDeck_components.png)
 - HeaderBar
 - InputBox
 - MainBtn
-- DeckNav
+- HomeNav
 
 Stats.js
 ![Stats](/planning/photos/my_mockup/Stats_components.png)
 - HeaderBar
+- Overview Card (*built in)
 - DeckStats
+- HomeNav
+
+Cards.js
+![Cards](/planning/photos/my_mockup/Cards_components.png)
+- HeaderBar (with "back" button)
+- Deck info card (*built in)
+- QuestionCard
 - DeckNav
