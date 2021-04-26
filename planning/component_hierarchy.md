@@ -35,3 +35,9 @@ Cards.js
 - Deck info card (*built in)
 - QuestionCard
 - DeckNav
+
+Cards.js (card edit modal)
+![Cards](/planning/photos/my_mockup/CardEdit_components.png)
+- Question input box
+- Answer input box
+- Confirm and cancel buttons
