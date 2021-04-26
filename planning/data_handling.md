@@ -1,5 +1,6 @@
 App.js (Root Component)
-- Handle initial loading and final saving to AsyncStorage
+- Handle initial loading of data from AsyncStorage to Redux
+- Handle final saving to of State from Redux to AsyncStorage
 
 Decks.js (Home Component)
 - Retrieves and displays list of decks only
