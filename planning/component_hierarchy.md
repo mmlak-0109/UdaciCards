@@ -46,6 +46,26 @@ AddCard.js
 ![AddCard](/planning/photos/my_mockup/AddCard_components.png)
 - HeaderBar
 - InputBox (Question)
-- InoutBox (Answer)
+- InputBox (Answer)
+- MainBtn
+- DeckNav
+
+Quiz.js
+![QuizQuestion](/planning/photos/my_mockup/QuizQuestion_components.png)
+- HeaderBar
+- ProgressBar
+- CardView
+- DeckNav
+
+![QuizAnswer](/planning/photos/my_mockup/QuizAnswer_components.png)
+- HeaderBar
+- ProgressBar
+- CardView
+- MainBtn
+- DeckNav
+
+![QuizResults](/planning/photos/my_mockup/QuizResults_components.png)
+- HeaderBar
+- ResultsCard
 - MainBtn
 - DeckNav
