@@ -41,3 +41,11 @@ Cards.js (card edit modal)
 - Question input box
 - Answer input box
 - Confirm and cancel buttons
+
+AddCard.js
+![AddCard](/planning/photos/my_mockup/AddCard_components.png)
+- HeaderBar
+- InputBox (Question)
+- InoutBox (Answer)
+- MainBtn
+- DeckNav
