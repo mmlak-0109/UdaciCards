@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList, Text, View } from 'react-native'
 import decks from '../utils/_DATA'
 import DeckCard from './DeckCard'
+import HeaderBar from './HeaderBar'
 
 const Decks = () => {
   const objectsToArray = (objects) => {
@@ -18,7 +19,7 @@ const Decks = () => {
 
   return (
     <View>
-      <Text>Decks</Text>
+      <HeaderBar title="Decks" />
       <Text> </Text>
       <FlatList
         data={objectsToArray(decks)}
