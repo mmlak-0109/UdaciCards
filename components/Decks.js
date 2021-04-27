@@ -3,6 +3,7 @@ import { FlatList, Text, View } from 'react-native'
 import decks from '../utils/_DATA'
 import DeckCard from './DeckCard'
 import HeaderBar from './HeaderBar'
+import HomeNav from './HomeNav'
 
 const Decks = () => {
   const objectsToArray = (objects) => {
@@ -26,6 +27,8 @@ const Decks = () => {
         renderItem={renderItem}
         keyExtractor={(deck) => deck.id}
       />
+      <Text> </Text>
+      <HomeNav />
     </View>
   )
 }
