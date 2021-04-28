@@ -1,9 +1,8 @@
 import React from 'react'
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, View } from 'react-native'
 import decks from '../utils/_DATA'
 import DeckCard from './DeckCard'
 import HeaderBar from './HeaderBar'
-import HomeNav from './HomeNav'
 
 const Decks = () => {
   const objectsToArray = (objects) => {
@@ -21,14 +20,11 @@ const Decks = () => {
   return (
     <View>
       <HeaderBar title="Decks" />
-      <Text> </Text>
       <FlatList
         data={objectsToArray(decks)}
         renderItem={renderItem}
         keyExtractor={(deck) => deck.id}
       />
-      <Text> </Text>
-      <HomeNav />
     </View>
   )
 }
