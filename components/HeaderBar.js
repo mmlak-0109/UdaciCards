@@ -1,12 +1,24 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 
 const HeaderBar = ({title}) => {
   return (
-    <View>
-      <Text>{title}</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>{title}</Text>
     </View>
   )
 }
 
 export default HeaderBar
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#00BCD4'    
+  },
+  text: {
+    textAlign: 'center',
+    marginTop: 30,
+    marginBottom: 10,
+    fontSize: 30
+  }
+})
