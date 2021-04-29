@@ -9,15 +9,31 @@ import Stats from './Stats';
 
 const HomeTabs = createBottomTabNavigator();
 
+const screenOptions = ({route}) => ({
+  tabBarIcon: ({ focused, color, size }) => {
+    let iconName;
+
+    if (route.name === 'Home') {
+      iconName = focused ? 'home' : 'home-outline'
+      return <Ionicons name={iconName} size={24} color="#00BCD4" />
+    }
+    if (route.name === 'Add Deck') {
+      iconName = focused ? 'plus-circle' : 'plus-circle-outline'
+      return <MaterialCommunityIcons name={iconName} size={24} color="#00BCD4" />
+    }
+    if (route.name === 'Stats') {
+      iconName = focused ? 'stats-chart' : 'stats-chart-outline'
+      return <Ionicons name={iconName} size={24} color="#00BCD4" />
+    }
+  }
+})
+
 const HomeNav = () => {
   return (
-    <HomeTabs.Navigator initialRouteName='Home'>
+    <HomeTabs.Navigator initialRouteName='Home' screenOptions={screenOptions}>
       <HomeTabs.Screen name='Home' component={Decks} />
       <HomeTabs.Screen name='Add Deck' component={AddDeck} />
       <HomeTabs.Screen name='Stats' component={Stats} />
-      {/* <Ionicons name="home" size={24} color="black" />
-      <MaterialCommunityIcons name="plus-circle" size={24} color="black" />
-      <Ionicons name="stats-chart" size={24} color="black" /> */}
     </HomeTabs.Navigator>
   )
 }
