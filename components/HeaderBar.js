@@ -2,11 +2,15 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-const HeaderBar = ({ title }) => {
+const HeaderBar = ({ title, handlePress}) => {
   return (
     <View style={styles.container}>
       {title === 'Cards'
-        ? <MaterialCommunityIcons name="chevron-left-circle" size={24} color="white" />
+        ? <MaterialCommunityIcons 
+            name="chevron-left-circle"
+            size={24}
+            color="white"
+            onPress={handlePress}/>
         : <Text></Text>
       }
       <Text style={styles.text}>{title}</Text>
