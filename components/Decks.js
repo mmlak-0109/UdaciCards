@@ -4,7 +4,7 @@ import decks from '../utils/_DATA'
 import DeckCard from './DeckCard'
 import HeaderBar from './HeaderBar'
 
-const Decks = () => {
+const Decks = ({ navigation }) => {
   const objectsToArray = (objects) => {
     return Object.keys(objects).reduce((obj, deck) => {
       return [...obj, objects[deck]];
@@ -13,7 +13,10 @@ const Decks = () => {
 
   const renderItem = ({item}) => {
     return (
-      <DeckCard item={item}/>
+      <DeckCard
+        item={item}
+        handlePress={() => navigation.navigate("Cards")} 
+      />
     )
   }
 
