@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View } from 'react-native'
+import { FlatList, StyleSheet, View } from 'react-native'
 import decks from '../utils/_DATA'
 import DeckCard from './DeckCard'
 import HeaderBar from './HeaderBar'
@@ -24,9 +24,16 @@ const Decks = () => {
         data={objectsToArray(decks)}
         renderItem={renderItem}
         keyExtractor={(deck) => deck.id}
+        style={styles.list}
       />
     </View>
   )
 }
 
 export default Decks
+
+const styles = StyleSheet.create({
+  list: {
+    marginTop: 15
+  }
+})
