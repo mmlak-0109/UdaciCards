@@ -2,10 +2,12 @@ import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import HeaderBar from './HeaderBar';
 
-const Cards = () => {
+const Cards = ({ navigation }) => {
   return (
     <View>
-      <HeaderBar title='Cards' />
+      <HeaderBar 
+        title='Cards'
+        handlePress={() => navigation.navigate('Home')} />
       <Text>Cards</Text>
     </View>
   )
