@@ -2,10 +2,12 @@ import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-const DeckCard = ({item}) => {
+const DeckCard = ({ item, handlePress }) => {
   return (
     <View>
-      <Pressable style={styles.deckBtn}>
+      <Pressable
+        style={styles.deckBtn}
+        onPress={handlePress}>
         <Text>{item.title} ({item.cardCount} Cards)</Text>
         <MaterialCommunityIcons name="chevron-right-circle" size={24} color="#00BCD4" />
       </Pressable>
