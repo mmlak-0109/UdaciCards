@@ -5,25 +5,18 @@ import {DECKS_STORAGE_KEY, decks } from './_DATA'
 export const initializeData = async () => {
   try {
     let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
+    console.log('data:', data)
     if (data === null) {
       data = decks
       await AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data))
     }
 
     data = JSON.parse(data)
+    console.log('dataParsed:', data)
 
-  } catch(e) {
-    console.log(e)
-  }
-
-  return data
-}
-
-export const getDecks = async () => {
-  try {
-    let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
     return data
+
   } catch(e) {
-    console.log(e)
+    console.log('error', e)
   }
 }
