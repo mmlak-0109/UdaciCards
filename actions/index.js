@@ -6,3 +6,8 @@ export const receiveDecks = (decks) => ({
     type: RECEIVE_DECKS,
     decks
 })
+
+export const addNewDecks = (deck) => ({
+    type: ADD_DECK,
+    deck
+})
