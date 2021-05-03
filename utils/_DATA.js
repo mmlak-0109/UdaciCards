@@ -7,7 +7,7 @@ export const decks = {
   'a1paw3arzvmsjzunbqldc8' : {
     id: 'a1paw3arzvmsjzunbqldc8',
     title: 'React',
-    dateCreated: new Date('04-21-2021'),
+    dateCreated: new Date().toLocaleDateString(),
     cardCount: 2,
     questions: [
       {
@@ -25,7 +25,7 @@ export const decks = {
   'fm71encsnjcqqpewbqrzz' : {
     id: 'fm71encsnjcqqpewbqrzz',
     title: 'JavaScript',
-    dateCreated: new Date('04-21-2021'),
+    dateCreated: new Date().toLocaleDateString(),
     cardCount: 1,
     questions: [
       {
