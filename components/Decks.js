@@ -7,7 +7,6 @@ import HeaderBar from './HeaderBar'
 
 const Decks = ({ navigation }) => {
   const decks = useSelector(state => state.decks)
-  console.log(decks)
 
   const objectsToArray = (objects) => {
     return Object.keys(objects).reduce((obj, deck) => {
@@ -15,11 +14,16 @@ const Decks = ({ navigation }) => {
     }, []);
   }
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     return (
       <DeckCard
         item={item}
-        handlePress={() => navigation.navigate("Cards")} 
+        handlePress={() => {
+          navigation.navigate('Cards', {
+            screen: 'Cards',
+            params: {id: item.id}
+          })
+        }}
       />
     )
   }
