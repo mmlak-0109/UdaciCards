@@ -28,8 +28,6 @@ export const initializeData = async () => {
 }
 
 export const saveNewDeck = async (deckName) => {
-  // let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
-  // data = JSON.parse(data)
   let UID = generateUID()
   let newDeck = {
     [UID]: {
@@ -42,4 +40,25 @@ export const saveNewDeck = async (deckName) => {
   }
   await AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(newDeck))
   return newDeck
+}
+
+export const saveNewCard = async ({deckId, question, answer}) => {
+  let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
+  data = JSON.parse(data)
+
+  let addQuestionDeck = data[deckId]
+  let UID = generateUID()
+
+  addQuestionDeck = {
+    [deckId]: {
+      ...addQuestionDeck,
+      ['questions']: [...addQuestionDeck, {id: UID, question: question, answer: answer}]
+    }
+  }
+
+  await AsyncStorage.mergeItem(
+    DECKS_STORAGE_KEY,
+    JSON.stringify(addQuestionDeck)
+  )
+  return addQuestionDeck
 }
