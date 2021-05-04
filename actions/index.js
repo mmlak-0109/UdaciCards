@@ -11,3 +11,8 @@ export const addNewDecks = (deck) => ({
     type: ADD_DECK,
     deck
 })
+
+export const addNewCard = (deck) => ({
+    type: ADD_CARD,
+    deck
+})
