@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { color } from 'react-native-reanimated'
 
 const HeaderBar = ({ title, handlePress}) => {
   return (
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    marginTop: 15,
-    marginBottom: 5,
-    fontSize: 30
+    marginVertical: 5,
+    fontSize: 30,
+    color: '#FFFFFF'
   }
 })
