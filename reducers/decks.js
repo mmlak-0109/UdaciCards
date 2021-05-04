@@ -12,6 +12,11 @@ function decks (state = {}, action) {
         ...state,
         ...action.deck
       }
+    case ADD_CARD:
+      return {
+        ...state,
+        ...action.deck
+      }
     default:
       return state
   }
