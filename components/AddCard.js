@@ -1,18 +1,66 @@
-import React from 'react';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { addNewCard } from '../actions';
+import { saveNewCard } from '../utils/api';
 import HeaderBar from './HeaderBar';
+import InputBox from './InputBox';
+import MainBtn from './MainBtn';
 
-const AddCard = () => {
+const AddCard = ({ route, navigation}) => {
+  // console.log(route);
+  const initialQuestion = ''
+  const initialAnswer = ''
+
+  const [question, updateQuestion] = useState(initialQuestion)
+  const [answer, updateAnswer] = useState(initialAnswer)
+
+  console.log(question)
+
+  const dispatch = useDispatch()
+  // const { id } = route.params
+
+  const resetState = () => {
+    updateQuestion(initialQuestion)
+    updateAnswer(initialAnswer)
+  }
+
+  const handleSubmit = () => {
+    saveNewCard({deckId: id, question, answer})
+      .then(newQuestionDeck => {
+        dispatch(addNewCard(newQuestionDeck))
+        // How to wait for dispatch to complete before navigating?
+        // Page is blank upon arrival...
+        navigation.navigate('Cards', {
+          screen: 'Cards',
+          // params: {id}
+        })
+        resetState()
+      })
+  }
   return (
     <View>
       <HeaderBar title='Add Card'/>
-      <TextInput placeholder='Enter Question'/>
-      <TextInput placeholder='Enter Answer'/>
-      <Pressable>
-        <Text>Add Card</Text>
-      </Pressable>
+      <View style={styles.container}>
+        <InputBox 
+          placeholder='Enter Question'
+          value={question}
+          onChangeText={updateQuestion} />
+        <InputBox 
+          placeholder='Enter Answer'
+          value={answer}
+          onChangeText={updateAnswer} />
+        <MainBtn onPress={handleSubmit} />
+      </View>
     </View>
   )
 }
 
 export default AddCard
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 30,
+    justifyContent: 'center'
+  }
+})
