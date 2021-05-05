@@ -32,12 +32,14 @@ const screenOptions = ({route}) => ({
   }
 })
 
-const DeckNav = () => {
+const DeckNav = (props) => {
+  const id = props.route.params.id
+
   return (
     <DeckTabs.Navigator screenOptions={screenOptions} >
-      <DeckTabs.Screen name='Cards' component={Cards} />
-      <DeckTabs.Screen name='Add Card' component={AddCard} />
-      <DeckTabs.Screen name='Quiz' component={Quiz} />
+      <DeckTabs.Screen name='Cards'>{(props) => <Cards {...props} id={id}/>}</DeckTabs.Screen>
+      <DeckTabs.Screen name='Add Card'>{(props) => <AddCard {...props} id={id}/>}</DeckTabs.Screen>
+      <DeckTabs.Screen name='Quiz'>{(props) => <Quiz {...props} id={id}/>}</DeckTabs.Screen>
     </DeckTabs.Navigator>
   )
 }
