@@ -7,18 +7,14 @@ import HeaderBar from './HeaderBar';
 import InputBox from './InputBox';
 import MainBtn from './MainBtn';
 
-const AddCard = ({ route, navigation}) => {
-  // console.log(route);
+const AddCard = ({ navigation, id}) => {
   const initialQuestion = ''
   const initialAnswer = ''
 
   const [question, updateQuestion] = useState(initialQuestion)
   const [answer, updateAnswer] = useState(initialAnswer)
 
-  console.log(question)
-
   const dispatch = useDispatch()
-  // const { id } = route.params
 
   const resetState = () => {
     updateQuestion(initialQuestion)
@@ -33,7 +29,7 @@ const AddCard = ({ route, navigation}) => {
         // Page is blank upon arrival...
         navigation.navigate('Cards', {
           screen: 'Cards',
-          // params: {id}
+          params: {id}
         })
         resetState()
       })
