@@ -20,12 +20,10 @@ const AddDeck = ({ navigation }) => {
     saveNewDeck(deckName)
       .then(newDeck => {
         dispatch(addNewDecks(newDeck))
-        // How to wait for dispatch to complete before navigating?
-        // Page is blank upon arrival...
-        navigation.navigate('Cards', {
-          screen: 'Cards',
-          params: {id: newDeck.id}
-        })
+
+        const id = Object.keys(newDeck)[0]
+        navigation.navigate('Cards', {id})
+        
         resetState()
       })
   }
