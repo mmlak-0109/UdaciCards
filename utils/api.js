@@ -46,19 +46,20 @@ export const saveNewDeck = async (deckName) => {
   }
 }
 
-export const saveNewCard = async ({deckId, question, answer}) => {
+export const saveNewCard = async ({ id, question, answer}) => {
   try {
     let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
     data = JSON.parse(data)
   
-    let addQuestionDeck = data[deckId]
+    let addQuestionDeck = data[id]
     console.log('addQuestionDeck:', addQuestionDeck)
     let UID = generateUID()
   
     addQuestionDeck = {
-      [deckId]: {
+      [id]: {
         ...addQuestionDeck,
-        'questions': [...addQuestionDeck["questions"], {id: UID, question: question, answer: answer}]
+        'cardCount': addQuestionDeck['cardCount'] + 1,
+        'questions': [...addQuestionDeck['questions'], {id: UID, question: question, answer: answer}]
       }
     }
   
