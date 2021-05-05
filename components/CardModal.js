@@ -6,6 +6,7 @@ const CardModal = ({ id, question, answer, visable, onPress }) => {
   const initialQuestion = question
   const initialAnswer = answer
 
+  // TODO: Impliment ability to edit question and answer
   const [questionState, updateQuestion] = useState(initialQuestion)
   const [answerState, updateAnswer] = useState(initialAnswer)
 
@@ -23,7 +24,7 @@ const CardModal = ({ id, question, answer, visable, onPress }) => {
           <Pressable
             onPress={onPress}
           >
-            <Text>Cancel</Text>
+            <Text style={{color: '#00BCD4'}}>Cancel</Text>
           </Pressable>
         </View>
       </View>
@@ -45,7 +46,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -55,24 +55,4 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
-  }
 });
