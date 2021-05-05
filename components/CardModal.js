@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import InputBox from './InputBox';
 
-const CardModal = ({ id, question, answer, visable, onPress }) => {
+const CardModal = ({ deckId, itemId, question, answer, visable, onPress }) => {
   const initialQuestion = question
   const initialAnswer = answer
 
