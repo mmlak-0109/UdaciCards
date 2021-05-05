@@ -28,37 +28,46 @@ export const initializeData = async () => {
 }
 
 export const saveNewDeck = async (deckName) => {
-  let UID = generateUID()
-  let newDeck = {
-    [UID]: {
-      id: UID,
-      title: deckName,
-      dateCreated: new Date().toLocaleDateString(),
-      cardCount: 0,
-      questions: []
+  try {
+    let UID = generateUID()
+    let newDeck = {
+      [UID]: {
+        id: UID,
+        title: deckName,
+        dateCreated: new Date().toLocaleDateString(),
+        cardCount: 0,
+        questions: []
+      }
     }
+    await AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(newDeck))
+    return newDeck
+  } catch (e) {
+    console.log('saveNewDeck error', e)
   }
-  await AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(newDeck))
-  return newDeck
 }
 
 export const saveNewCard = async ({deckId, question, answer}) => {
-  let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
-  data = JSON.parse(data)
-
-  let addQuestionDeck = data[deckId]
-  let UID = generateUID()
-
-  addQuestionDeck = {
-    [deckId]: {
-      ...addQuestionDeck,
-      ['questions']: [...addQuestionDeck, {id: UID, question: question, answer: answer}]
+  try {
+    let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
+    data = JSON.parse(data)
+  
+    let addQuestionDeck = data[deckId]
+    console.log('addQuestionDeck:', addQuestionDeck)
+    let UID = generateUID()
+  
+    addQuestionDeck = {
+      [deckId]: {
+        ...addQuestionDeck,
+        'questions': [...addQuestionDeck["questions"], {id: UID, question: question, answer: answer}]
+      }
     }
+  
+    await AsyncStorage.mergeItem(
+      DECKS_STORAGE_KEY,
+      JSON.stringify(addQuestionDeck)
+    )
+    return addQuestionDeck
+  } catch (e) {
+    console.log('saveNewCard error', e)
   }
-
-  await AsyncStorage.mergeItem(
-    DECKS_STORAGE_KEY,
-    JSON.stringify(addQuestionDeck)
-  )
-  return addQuestionDeck
 }
