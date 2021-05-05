@@ -19,10 +19,8 @@ const Decks = ({ navigation }) => {
       <DeckCard
         item={item}
         handlePress={() => {
-          navigation.navigate('Cards', {
-            screen: 'Cards',
-            params: {id: item.id}
-          })
+          const id = item.id
+          navigation.navigate('Cards', {id})
         }}
       />
     )
