@@ -22,11 +22,9 @@ const AddCard = ({ navigation, id}) => {
   }
 
   const handleSubmit = () => {
-    saveNewCard({deckId: id, question, answer})
+    saveNewCard({ id, question, answer})
       .then(newQuestionDeck => {
         dispatch(addNewCard(newQuestionDeck))
-        // How to wait for dispatch to complete before navigating?
-        // Page is blank upon arrival...
         navigation.navigate('Cards', {
           screen: 'Cards',
           params: {id}
