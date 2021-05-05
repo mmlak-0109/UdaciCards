@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import CardModal from './CardModal';
 import InputBox from './InputBox';
 
-const QuestionCard = ({ item }) => {
+const QuestionCard = ({ item, id}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const addEllipsis = (str) => {
@@ -17,7 +17,8 @@ const QuestionCard = ({ item }) => {
   return (
     <View>
       <CardModal 
-        id={id}
+        deckId={id}
+        itemId={item.id}
         question={item.question}
         answer={item.answer}
         visable={modalVisible}
@@ -28,8 +29,8 @@ const QuestionCard = ({ item }) => {
         onPress={() => setModalVisible(!modalVisible)}
       >
         <View>
-          <Text>{addEllipsis(item.question.slice(0, 30))}</Text>
-          <Text>{item.answer.slice(0, 30)}...</Text>
+          <Text>{addEllipsis(item.question.slice(0, 25))}</Text>
+          {/* <Text>{item.answer.slice(0, 25)}...</Text> */}
         </View>
         <View>
           <Text style={{color: '#00BCD4'}}>
@@ -52,5 +53,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 15,
     marginBottom: 15,
+    marginHorizontal: 25,
   },
 })
