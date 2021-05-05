@@ -3,10 +3,9 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import HeaderBar from './HeaderBar';
 
-const Cards = ({ route, navigation }) => {
-  const { id } = route.params
+const Cards = ({ navigation, id}) => {
   const deck = useSelector(state => state.decks[id])
-
+  
   const addEllipsis = (str) => {
     return (
       str.includes('?')
