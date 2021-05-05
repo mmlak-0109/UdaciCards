@@ -11,6 +11,7 @@ const Cards = ({ navigation, id}) => {
     return (
       <QuestionCard 
         item={item}
+        id={id}
       />
     )
   }
@@ -44,6 +45,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderRadius: 5,
     padding: 15,
+    marginTop: 15,
     marginBottom: 30,
+    marginHorizontal: 25,
   },
 })
