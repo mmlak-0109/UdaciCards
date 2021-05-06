@@ -1,7 +1,10 @@
 import React from 'react'
 import { Pressable, StyleSheet, Text } from 'react-native'
+import { primary } from '../utils/colors';
 
 const MainBtn = ({ onPress }) => {
+
+
   return (
     <Pressable 
       onPress={onPress}
@@ -17,7 +20,7 @@ export default MainBtn
 const styles = StyleSheet.create({
   btn: {
     alignItems: 'center',
-    backgroundColor: "#00BCD4",
+    backgroundColor: primary,
     borderRadius: 5,
     padding: 15,
     marginBottom: 15,
