@@ -27,7 +27,7 @@ const Decks = ({ navigation }) => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <HeaderBar title="Decks" />
       <FlatList
         data={objectsToArray(decks)}
@@ -42,6 +42,9 @@ const Decks = ({ navigation }) => {
 export default Decks
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   list: {
     marginTop: 15
   }
