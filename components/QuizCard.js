@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { correct, incorrect } from '../utils/colors';
 
-const QuizCard = ({ question, answer }) => {
-  const [modalVisible, setModalVisible] = useState(true);
+const QuizCard = ({ question, answer, modalVisible, onCardFlip, onAnswerMark }) => {
 
   if (modalVisible) {
     return (
       <View>
         <View style={styles.modalView}>
-          <Text>{question}</Text>
+          <Text style={{textAlign: 'center', justifyContent: 'center'}}>{question}</Text>
           <Pressable
-            onPress={() => setModalVisible(!modalVisible)}
+            onPress={() => onCardFlip(!modalVisible)}
             style={styles.btn}
           >
             <Text style={styles.btnText}>Flip Card</Text>
@@ -21,21 +21,22 @@ const QuizCard = ({ question, answer }) => {
   } else {
     return (
       <View>
-        <View style={styles.modalView}>
-          <Text>{answer}</Text>
+        <View style={[styles.modalView, styles.modalViewAnswer]}>
+          <Text style={{textAlign: 'center', justifyContent: 'center'}}>{answer}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
           <Pressable
-            // onPress={onPress}
+            onPress={onAnswerMark}
             style={styles.correctBtn}
           >
-            <Text style={styles.btnText}>Correct</Text>
+            <Text style={styles.answerBtnText}>Correct</Text>
           </Pressable>
           <Pressable
-            // onPress={onPress}
+
+            onPress={onAnswerMark}
             style={styles.incorrectBtn}
           >
-            <Text style={styles.btnText}>Incorrect</Text>
+            <Text style={styles.answerBtnText}>Incorrect</Text>
           </Pressable>
         </View>
       </View>
@@ -50,8 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 20,
     paddingTop: 100,
-    paddingLeft: 100,
-    paddingRight: 100,
+    paddingLeft: 20,
+    paddingRight: 20,
     marginHorizontal: 25,
     shadowColor: "#000",
     shadowOffset: {
@@ -62,6 +63,9 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  modalViewAnswer: {
+    paddingBottom: 100
+  },
   btn:{
     marginTop: 80,
     marginBottom: 20
@@ -70,15 +74,22 @@ const styles = StyleSheet.create({
     color: '#00BCD4',
     textAlign: 'center'
   },
+  answerBtnText: {
+    color: '#FFFFFF',
+    textAlign: 'center'
+  },
   correctBtn: {
-    marginTop: 80,
+    marginTop: 20,
     paddingVertical: 20,
-    paddingHorizontal: 40,
-    borderWidth: 2
+    paddingHorizontal: 50,
+    borderRadius: 5,
+    backgroundColor: correct
   },
   incorrectBtn: {
-    marginTop: 80,
-    marginBottom: 20,
-    borderWidth: 2
+    marginTop: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 50,
+    borderRadius: 5,
+    backgroundColor: incorrect
   }
 });
