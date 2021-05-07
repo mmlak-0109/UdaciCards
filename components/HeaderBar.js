@@ -1,23 +1,36 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { color } from 'react-native-reanimated'
 
-const HeaderBar = ({ title, handlePress}) => {
-  return (
-    <View style={styles.container}>
-      {title === 'Cards'
-        ? <MaterialCommunityIcons 
+const HeaderBar = ({ title, handlePress, onDelete}) => {
+  if (title === 'Cards') {
+    return (
+      <View style={styles.container}>
+        <MaterialCommunityIcons 
             name="chevron-left-circle"
             size={24}
             color="white"
-            onPress={handlePress}/>
-        : <Text></Text>
-      }
-      <Text style={styles.text}>{title}</Text>
-      <Text></Text>
-    </View>
-  )
+            onPress={handlePress}
+            style={{marginLeft: 10}}
+        />
+        <Text style={styles.text}>{title}</Text>
+        <Pressable
+          onPress={onDelete}
+        >
+          <Text style={styles.btnText}>Delete</Text>
+        </Pressable>
+      </View>
+    )
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text></Text>
+        <Text style={styles.text}>{title}</Text>
+        <Text></Text>
+      </View>
+    )
+  }
 }
 
 export default HeaderBar
@@ -30,9 +43,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#00BCD4'    
   },
   text: {
-    textAlign: 'center',
     marginVertical: 5,
     fontSize: 30,
     color: '#FFFFFF'
-  }
+  },
+  btnText: {
+    color: '#FFFFFF',
+    marginRight: 10
+  },
 })
