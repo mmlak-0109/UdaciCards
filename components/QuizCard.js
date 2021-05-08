@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity,View } from 'react-native';
 import { correct, incorrect } from '../utils/colors';
 
 const QuizCard = ({ question, answer, modalVisible, onCardFlip, onAnswerMark }) => {
@@ -9,12 +9,12 @@ const QuizCard = ({ question, answer, modalVisible, onCardFlip, onAnswerMark }) 
       <View>
         <View style={styles.modalView}>
           <Text style={{textAlign: 'center', justifyContent: 'center'}}>{question}</Text>
-          <Pressable
+          <TouchableOpacity
             onPress={() => onCardFlip(!modalVisible)}
             style={styles.btn}
           >
-            <Text style={styles.btnText}>Flip Card</Text>
-          </Pressable>
+            <Text style={styles.btnText}>Show Answer</Text>
+          </TouchableOpacity>
         </View>
       </View>
     )

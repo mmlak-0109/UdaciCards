@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import HeaderBar from './HeaderBar';
 import ProgressBar from './ProgressBar';
@@ -60,12 +60,12 @@ const Quiz = ({ navigation, id }) => {
           onCardFlip={setModalVisible}
           onAnswerMark={onAnswerMark}
         />
-        <Pressable
+        <TouchableOpacity
           onPress={onQuit}
           style={styles.btn}
         >
           <Text style={styles.btnText}>Quit?</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     )
   } else {
