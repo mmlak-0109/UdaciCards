@@ -19,12 +19,14 @@ const CardModal = ({ deckId, itemId, question, answer, visable, onPress }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text>{questionState}</Text>
-          <Text>{answerState}</Text>
+          <Text style={{fontWeight: 'bold'}}>{questionState}</Text>
+          <Text style={{marginTop: 10}}>{answerState}</Text>
           <Pressable
             onPress={onPress}
           >
-            <Text style={{color: '#00BCD4'}}>Cancel</Text>
+            <Text style={{
+              color: '#00BCD4',
+              marginTop: 10}}>Close</Text>
           </Pressable>
         </View>
       </View>
