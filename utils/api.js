@@ -72,3 +72,25 @@ export const saveNewCard = async ({ id, question, answer}) => {
     console.log('saveNewCard error', e)
   }
 }
+
+// export const deleteDeckAsync = async (id) => {
+//   try {
+//     return AsyncStorage.removeItem(id)
+//   } catch (error) {
+//     console.log('deleteDeckAsync error', e)
+//   }
+// }
+
+// export const deleteCardAsync = async ({ id, cardId }) => {
+//   try {
+//     let data = await AsyncStorage.getItem(CALENDAR_STORAGE_KEY)
+//     data = JSON.parse(data)
+//     //   .then((results) => {
+//     //     const data = JSON.parse(results)
+//     //     data[key] = undefined
+//     //     delete data[key]
+//     //     AsyncStorage.setItem(CALENDAR_STORAGE_KEY, JSON.stringify(data))
+//   } catch (error) {
+//     console.log('deleteDeckAsync error', e)
+//   }
+// }
