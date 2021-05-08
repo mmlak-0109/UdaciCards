@@ -2,6 +2,7 @@ import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { color } from 'react-native-reanimated'
+import { primary } from '../utils/colors'
 
 const HeaderBar = ({ title, handlePress, onDelete}) => {
   if (title === 'Cards') {
@@ -16,7 +17,7 @@ const HeaderBar = ({ title, handlePress, onDelete}) => {
         />
         <Text style={styles.text}>{title}</Text>
         <Pressable
-          onPress={onDelete}
+          // onPress={onDelete}
         >
           <Text style={styles.btnText}>Delete</Text>
         </Pressable>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF'
   },
   btnText: {
-    color: '#FFFFFF',
+    color: primary,
     marginRight: 10
   },
 })
