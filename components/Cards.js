@@ -33,7 +33,7 @@ const Cards = ({ navigation, id}) => {
   return (
     <View style={styles.container}>
       <HeaderBar 
-        title='Cards'
+        title={`Cards - ${deck.title}`}
         handlePress={() => navigation.navigate('Home')}
         // onDelete={onDeleteDeck}
       />
