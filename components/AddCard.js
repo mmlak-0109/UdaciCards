@@ -44,7 +44,10 @@ const AddCard = ({ navigation, id}) => {
           placeholder='Enter Answer'
           value={answer}
           onChangeText={updateAnswer} />
-        <MainBtn onPress={handleSubmit} />
+        <MainBtn 
+          onPress={handleSubmit}
+          text='Submit'
+        />
       </View>
     </View>
   )

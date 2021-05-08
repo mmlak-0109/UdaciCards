@@ -36,7 +36,9 @@ const AddDeck = ({ navigation }) => {
           placeholder='Enter Deck Name'
           value={deckName}
           onChangeText={updateDeckName} />
-        <MainBtn onPress={handleSubmit} />
+        <MainBtn 
+          onPress={handleSubmit}
+          text='Submit' />
       </View>
     </View>
   )
