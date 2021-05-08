@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { set } from 'react-native-reanimated';
 import { useSelector } from 'react-redux';
 import HeaderBar from './HeaderBar';
 import ProgressBar from './ProgressBar';
 import QuizCard from './QuizCard';
+import MainBtn from './MainBtn';
+
 
 const Quiz = ({ navigation, id }) => {
   const deck = useSelector(state => state.decks[id])
@@ -15,7 +16,10 @@ const Quiz = ({ navigation, id }) => {
 
   const [modalVisible, setModalVisible] = useState(true);
 
-  const onAnswerMark = () => {
+  const [currentScore, updateCurrentScore] = useState({'correct': 0, 'incorrect': 0})
+
+  const onAnswerMark = (answerMark) => {
+    updateCurrentScore({...currentScore, [answerMark]: currentScore[answerMark] + 1})
     updateCurrentCard(currentCard + 1)
     setModalVisible(true)
   }
@@ -27,7 +31,14 @@ const Quiz = ({ navigation, id }) => {
     })
     updateCurrentCard(1)
     setModalVisible(true)
+    updateCurrentScore({'correct': 0, 'incorrect': 0})
   }
+
+  const onRestart = () => {
+    setModalVisible(true)
+    updateCurrentCard(1)
+    updateCurrentScore({'correct': 0, 'incorrect': 0})
+  } 
 
   if (currentCard <= totalCards) {
     const currentIndex = currentCard-1
@@ -58,15 +69,28 @@ const Quiz = ({ navigation, id }) => {
       </View>
     )
   } else {
+    const finalScore = (currentScore['correct'] / totalCards) * 100
     return (
-      <View style={styles.container}>
-        <Text>Quiz Complete!</Text>
-        <Pressable
-          onPress={onQuit}
-          style={styles.btn}
-        >
-          <Text style={styles.btnText}>Exit</Text>
-        </Pressable>
+      <View style={[styles.container, {justifyContent: 'center'}]}>
+        <Text style={[styles.txt, {fontSize: 30, fontWeight: 'bold'}]}>
+          Quiz Complete!
+        </Text>
+        <Text style={[styles.txt, {fontSize: 20}]}>
+          Your Score:
+        </Text>
+        <Text style={[styles.txt, {fontSize: 20}]}>
+          {finalScore}%
+        </Text>
+        <View style={{marginTop: 20}}>
+          <MainBtn 
+            onPress={onRestart}
+            text='Restart'
+          />
+          <MainBtn 
+            onPress={onQuit}
+            text='Exit'
+          />
+        </View>
       </View>
     )
   }
@@ -76,7 +100,7 @@ export default Quiz
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   btn: {
     marginTop: 30,
@@ -86,4 +110,7 @@ const styles = StyleSheet.create({
     color: '#00BCD4',
     textAlign: 'center'
   },
+  txt: {
+    textAlign: 'center'
+  }
 });
