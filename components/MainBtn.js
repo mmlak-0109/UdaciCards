@@ -2,7 +2,7 @@ import React from 'react'
 import { Pressable, StyleSheet, Text } from 'react-native'
 import { primary } from '../utils/colors';
 
-const MainBtn = ({ onPress }) => {
+const MainBtn = ({ onPress, text }) => {
 
 
   return (
@@ -10,7 +10,9 @@ const MainBtn = ({ onPress }) => {
       onPress={onPress}
       style={styles.btn}
     >
-      <Text style={{color: '#FFFFFF', fontWeight: 'bold'}}>Submit</Text>
+      <Text style={{color: '#FFFFFF', fontWeight: 'bold'}}>
+        {text}
+      </Text>
     </Pressable>
   )
 }
