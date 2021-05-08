@@ -5,7 +5,7 @@ import { color } from 'react-native-reanimated'
 import { primary } from '../utils/colors'
 
 const HeaderBar = ({ title, handlePress, onDelete}) => {
-  if (title === 'Cards') {
+  if (title.includes('Cards')) {
     return (
       <View style={styles.container}>
         <MaterialCommunityIcons 
