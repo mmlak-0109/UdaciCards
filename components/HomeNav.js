@@ -37,7 +37,7 @@ const HomeNav = () => {
     <HomeTabs.Navigator initialRouteName='Home' screenOptions={screenOptions} >
       <HomeTabs.Screen name='Home' component={Decks} />
       <HomeTabs.Screen name='Add Deck' component={AddDeck} />
-      <HomeTabs.Screen name='Stats' component={Stats} />
+      {/* <HomeTabs.Screen name='Stats' component={Stats} /> */}
     </HomeTabs.Navigator>
   )
 }
