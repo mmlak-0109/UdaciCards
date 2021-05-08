@@ -26,14 +26,14 @@ const QuizCard = ({ question, answer, modalVisible, onCardFlip, onAnswerMark }) 
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'center'}}>
           <Pressable
-            onPress={onAnswerMark}
+            onPress={() => onAnswerMark('correct')}
             style={styles.correctBtn}
           >
             <Text style={styles.answerBtnText}>Correct</Text>
           </Pressable>
           <Pressable
 
-            onPress={onAnswerMark}
+            onPress={() => onAnswerMark('incorrect')}
             style={styles.incorrectBtn}
           >
             <Text style={styles.answerBtnText}>Incorrect</Text>
