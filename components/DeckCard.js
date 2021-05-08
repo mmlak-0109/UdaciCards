@@ -1,16 +1,16 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const DeckCard = ({ item, handlePress }) => {
   return (
     <View>
-      <Pressable
+      <TouchableOpacity
         style={styles.deckBtn}
         onPress={handlePress}>
         <Text>{item.title} ({item.cardCount} Cards)</Text>
         <MaterialCommunityIcons name="chevron-right-circle" size={24} color="#00BCD4" />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   )
 }
