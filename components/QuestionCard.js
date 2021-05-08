@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import CardModal from './CardModal';
 import InputBox from './InputBox';
 
@@ -24,7 +24,7 @@ const QuestionCard = ({ item, id}) => {
         visable={modalVisible}
         onPress={() => setModalVisible(!modalVisible)}
       />
-      <Pressable
+      <TouchableOpacity
         style={styles.questionCard}
         onPress={() => setModalVisible(!modalVisible)}
       >
@@ -36,7 +36,7 @@ const QuestionCard = ({ item, id}) => {
             View
           </Text>
         </View>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   )
 }
