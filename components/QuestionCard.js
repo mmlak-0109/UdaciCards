@@ -30,11 +30,10 @@ const QuestionCard = ({ item, id}) => {
       >
         <View>
           <Text>{addEllipsis(item.question.slice(0, 25))}</Text>
-          {/* <Text>{item.answer.slice(0, 25)}...</Text> */}
         </View>
         <View>
           <Text style={{color: '#00BCD4'}}>
-            View/Edit
+            View
           </Text>
         </View>
       </Pressable>
