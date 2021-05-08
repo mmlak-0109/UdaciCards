@@ -8,6 +8,7 @@ import { rootReducer } from '../reducers';
 import { initializeData, resetData } from '../utils/api';
 import { useDispatch } from 'react-redux';
 import { receiveDecks } from '../actions';
+import { setLocalNotification } from '../utils/helpers';
 
 const store = createStore(rootReducer)
 
@@ -20,6 +21,7 @@ export default function RootComp() {
     //   .then(initializeData())
     initializeData()
       .then(decks => dispatch(receiveDecks(decks)))
+    setLocalNotification()
   })
 
   return (
