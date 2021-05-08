@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInput } from 'react-native';
+import { primary } from '../utils/colors';
 
 const InputBox = ({ placeholder, value, onChangeText }) => {
   return (
@@ -7,7 +8,14 @@ const InputBox = ({ placeholder, value, onChangeText }) => {
       placeholder={placeholder}
       value={value}
       onChangeText={onChangeText}
-      style={{marginHorizontal: 15, marginBottom: 15}} />
+      multiline
+      style={{
+        marginHorizontal: 15,
+        marginBottom: 15,
+        borderWidth: 1,
+        borderColor: primary,
+        borderRadius: 5
+        }} />
   )
 }
 
