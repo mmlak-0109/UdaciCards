@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
-import React, { useEffect, useState } from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNav from './StackNav';
 import { createStore } from 'redux';
@@ -13,7 +13,6 @@ import { setLocalNotification } from '../utils/helpers';
 const store = createStore(rootReducer)
 
 export default function RootComp() {
-  // const [storeReady, notifyStoreReady] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
