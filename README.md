@@ -18,7 +18,7 @@ First, navigate to the directory where you want to save the app and run this cod
 ```sh
 git clone https://github.com/mmlak-0109/UdaciCards.git
 ```
-Then ```cd  ``` into the apps main directory.
+Then ```cd``` into the apps main directory.
 
 Run ```yarn install``` to install all dependencies.
 (While ```npm``` should work, I used ```yarn``` as my package manager, so please do the same.)
@@ -30,4 +30,4 @@ A new browser window should automatically open displaying Expo DevTools running 
 Scan the QR Code with the Android or iOS Expo App to run the application.
 
 ## Testing
-I tested the app using the the Android Expo App on a LG V20 Pro using android 8.0.0
+I tested the app using the Android Expo App on a LG V20 Pro using android 8.0.0
