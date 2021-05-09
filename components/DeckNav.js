@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Cards from './Cards';
 import AddCard from './AddCard';
 import Quiz from './Quiz';
+import { primary } from '../utils/colors';
 
 const DeckTabs = createBottomTabNavigator();
 
@@ -25,18 +26,19 @@ const screenOptions = ({route}) => ({
       iconName = focused ? 'school' : 'school-outline'
       return <Ionicons name={iconName} size={24} color={color} />
     }
-  },
-  tabBarOptions: {
-    activeTintColor: '#00BCD4',
-    inactiveTintColor: '#00BCD4'
   }
 })
+
+const tabBarOptions = {
+  activeTintColor: primary,
+  inactiveTintColor: primary
+}
 
 const DeckNav = (props) => {
   const id = props.route.params.id
 
   return (
-    <DeckTabs.Navigator screenOptions={screenOptions} >
+    <DeckTabs.Navigator screenOptions={screenOptions} tabBarOptions={tabBarOptions} >
       <DeckTabs.Screen name='Cards'>{(props) => <Cards {...props} id={id}/>}</DeckTabs.Screen>
       <DeckTabs.Screen name='Add Card'>{(props) => <AddCard {...props} id={id}/>}</DeckTabs.Screen>
       <DeckTabs.Screen name='Quiz'>{(props) => <Quiz {...props} id={id}/>}</DeckTabs.Screen>

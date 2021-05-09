@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Decks from './Decks';
 import AddDeck from './AddDeck';
 import Stats from './Stats';
+import { primary } from '../utils/colors';
 
 const HomeTabs = createBottomTabNavigator();
 
@@ -25,16 +26,17 @@ const screenOptions = ({route}) => ({
       iconName = focused ? 'stats-chart' : 'stats-chart-outline'
       return <Ionicons name={iconName} size={24} color={color} />
     }
-  },
-  tabBarOptions: {
-    activeTintColor: '#00BCD4',
-    inactiveTintColor: '#00BCD4'
   }
 })
 
+const tabBarOptions = {
+  activeTintColor: primary,
+  inactiveTintColor: primary
+}
+
 const HomeNav = () => {
   return (
-    <HomeTabs.Navigator initialRouteName='Home' screenOptions={screenOptions} >
+    <HomeTabs.Navigator initialRouteName='Home' screenOptions={screenOptions} tabBarOptions={tabBarOptions}>
       <HomeTabs.Screen name='Home' component={Decks} />
       <HomeTabs.Screen name='Add Deck' component={AddDeck} />
       {/* <HomeTabs.Screen name='Stats' component={Stats} /> */}
