@@ -10,7 +10,7 @@ const InputBox = ({ placeholder, value, onChangeText }) => {
       onChangeText={onChangeText}
       multiline
       style={{
-        marginHorizontal: 15,
+        marginHorizontal: 25,
         marginBottom: 15,
         borderWidth: 1,
         borderColor: primary,
