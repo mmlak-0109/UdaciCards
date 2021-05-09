@@ -49,7 +49,7 @@ export default QuizCard
 const styles = StyleSheet.create({
   modalView: {
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 5,
     paddingTop: 100,
     paddingLeft: 20,
     paddingRight: 20,
@@ -81,14 +81,14 @@ const styles = StyleSheet.create({
   correctBtn: {
     marginTop: 20,
     paddingVertical: 20,
-    paddingHorizontal: 50,
+    paddingHorizontal: 53,
     borderRadius: 5,
     backgroundColor: correct
   },
   incorrectBtn: {
     marginTop: 20,
     paddingVertical: 20,
-    paddingHorizontal: 50,
+    paddingHorizontal: 53,
     borderRadius: 5,
     backgroundColor: incorrect
   }
