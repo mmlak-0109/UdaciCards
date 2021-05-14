@@ -35,6 +35,8 @@ const AddDeck = ({ navigation }) => {
         <InputBox 
           placeholder='Enter Deck Name'
           value={deckName}
+          autoFocus={true}
+          blurOnSubmit={true}
           onChangeText={updateDeckName} />
         <MainBtn 
           onPress={handleSubmit}
