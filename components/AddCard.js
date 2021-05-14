@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useRef } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { addNewCard } from '../actions';
 import { saveNewCard } from '../utils/api';
@@ -10,7 +11,6 @@ import MainBtn from './MainBtn';
 const AddCard = ({ navigation, id}) => {
   const initialQuestion = ''
   const initialAnswer = ''
-
   const [question, updateQuestion] = useState(initialQuestion)
   const [answer, updateAnswer] = useState(initialAnswer)
 
@@ -32,6 +32,9 @@ const AddCard = ({ navigation, id}) => {
         resetState()
       })
   }
+
+  const answerRef = useRef()
+
   return (
     <View>
       <HeaderBar title='Add Card'/>
@@ -39,11 +42,18 @@ const AddCard = ({ navigation, id}) => {
         <InputBox 
           placeholder='Enter Question'
           value={question}
-          onChangeText={updateQuestion} />
+          autoFocus={true}
+          onChangeText={updateQuestion}
+          blurOnSubmit={true}
+          onSubmitEditing={() => {
+            answerRef.current.focus()}}
+          multiline={false} />
         <InputBox 
           placeholder='Enter Answer'
           value={answer}
-          onChangeText={updateAnswer} />
+          refProp={answerRef}
+          onChangeText={updateAnswer}
+          multiline={true} />
         <MainBtn 
           onPress={handleSubmit}
           text='Submit'
