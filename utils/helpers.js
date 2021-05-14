@@ -1,5 +1,7 @@
+import React from 'react'
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import * as Notifications from 'expo-notifications';
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
 export const generateUID = () => {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
@@ -56,3 +58,11 @@ export function setLocalNotification () {
       }
     })
 }
+
+export const DismissKeyboard = ({ children }) => (
+  <TouchableWithoutFeedback
+    onPress={() => Keyboard.dismiss()}
+    accessible={false}>
+      {children}
+  </TouchableWithoutFeedback>
+)
