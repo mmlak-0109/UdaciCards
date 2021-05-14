@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNav from './StackNav';
 import { createStore } from 'redux';
@@ -9,6 +9,7 @@ import { initializeData, resetData } from '../utils/api';
 import { useDispatch } from 'react-redux';
 import { receiveDecks } from '../actions';
 import { setLocalNotification } from '../utils/helpers';
+import { primary } from '../utils/colors';
 
 const store = createStore(rootReducer)
 
@@ -24,12 +25,14 @@ export default function RootComp() {
   })
 
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor='#00BCD4'/>
-      <NavigationContainer>
-        <StackNav />
-      </NavigationContainer>
-    </View>
+      <SafeAreaView style={{flex: 1, backgroundColor: primary}}>
+        <StatusBar />
+        <SafeAreaView style={styles.container}>
+          <NavigationContainer>
+            <StackNav />
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaView>
   );
 }
 
