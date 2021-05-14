@@ -8,7 +8,7 @@ import { rootReducer } from '../reducers';
 import { initializeData, resetData } from '../utils/api';
 import { useDispatch } from 'react-redux';
 import { receiveDecks } from '../actions';
-import { setLocalNotification } from '../utils/helpers';
+import { DismissKeyboard, setLocalNotification } from '../utils/helpers';
 import { primary } from '../utils/colors';
 
 const store = createStore(rootReducer)
@@ -25,6 +25,7 @@ export default function RootComp() {
   })
 
   return (
+    <DismissKeyboard>
       <SafeAreaView style={{flex: 1, backgroundColor: primary}}>
         <StatusBar />
         <SafeAreaView style={styles.container}>
@@ -33,6 +34,7 @@ export default function RootComp() {
           </NavigationContainer>
         </SafeAreaView>
       </SafeAreaView>
+    </DismissKeyboard>
   );
 }
 
