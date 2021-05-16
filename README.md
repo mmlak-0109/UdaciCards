@@ -30,4 +30,8 @@ A new browser window should automatically open displaying Expo DevTools running 
 Scan the QR Code with the Android or iOS Expo App to run the application.
 
 ## Testing
-I tested the app using the Android Expo App on an LG V20 Pro using android 8.0.0
+I tested the app by hand on both iOS and Android.
+- iOS
+    - Tested on an iPhone 8, 10, 11, and 12 (iOS 14.5) using the XCode emulator.
+- Android
+    - Tested on a physical LG V20 Pro (Android 8.0.0) using the Android Expo App.
