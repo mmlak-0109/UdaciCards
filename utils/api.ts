@@ -54,7 +54,6 @@ export const saveNewCard = async ({ id, question, answer}) => {
     let dataObject: object = JSON.parse(data)
   
     let addQuestionDeck = dataObject[id]
-    console.log('addQuestionDeck:', addQuestionDeck)
     let UID = generateUID()
 
     let newCard: Flashcard = {
