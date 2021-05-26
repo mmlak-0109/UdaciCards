@@ -1,6 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { generateUID } from './helpers'
 import {DECKS_STORAGE_KEY, decks } from './_DATA'
+import { Flashcard } from './helpers'
+import dayjs from 'dayjs';
 
 export const resetData = async () => {
   try {
@@ -14,7 +16,7 @@ export const initializeData = async () => {
   try {
     let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
     if (data === null) {
-      data = decks
+      let data = decks
       await AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data))
     }
 
@@ -27,7 +29,7 @@ export const initializeData = async () => {
   }
 }
 
-export const saveNewDeck = async (deckName) => {
+export const saveNewDeck = async (deckName: string) => {
   try {
     let UID = generateUID()
     let newDeck = {
@@ -49,17 +51,27 @@ export const saveNewDeck = async (deckName) => {
 export const saveNewCard = async ({ id, question, answer}) => {
   try {
     let data = await AsyncStorage.getItem(DECKS_STORAGE_KEY)
-    data = JSON.parse(data)
+    let dataObject: object = JSON.parse(data)
   
-    let addQuestionDeck = data[id]
+    let addQuestionDeck = dataObject[id]
     console.log('addQuestionDeck:', addQuestionDeck)
     let UID = generateUID()
+
+    let newCard: Flashcard = {
+      id: UID,
+      question: question,
+      answer: answer,
+      interval: 0,
+      repetition: 0,
+      efactor: 2.5,
+      dueDate: dayjs(Date.now()).toISOString(),
+    }
   
     addQuestionDeck = {
       [id]: {
         ...addQuestionDeck,
         'cardCount': addQuestionDeck['cardCount'] + 1,
-        'questions': [...addQuestionDeck['questions'], {id: UID, question: question, answer: answer}]
+        'questions': [...addQuestionDeck['questions'], newCard]
       }
     }
   
