@@ -10,7 +10,7 @@ This is the third project of the [React Developer Nanodegree](https://www.udacit
 
 ## Project Overview:
 
-'UdaciCards' is a a mobile application that allows users to study collections of flashcards. The app will allow users to create different categories of flashcards called "decks", add flashcards to those decks, and take quizzes on those decks.
+'UdaciCards' is a mobile application that allows users to study collections of flashcards. The app will allow users to create different categories of flashcards called "decks", add flashcards to those decks, and take quizzes on those decks.
 
 ## How to Load the App
 
